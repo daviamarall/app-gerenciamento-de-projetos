@@ -11,17 +11,16 @@ app.use(express.json()); // Para que o Express entenda JSON no corpo da requisiÃ
 mongoose.connect('mongodb://localhost:27017/gerenciamento', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  serverSelectionTimeoutMS: 30000 // Aumenta o timeout para 30 segundos
+  serverSelectionTimeoutMS: 30000  // Aumenta o timeout para 30 segundos
 })
-.then(() => console.log('Conectado ao MongoDB'))
-.catch((err) => {
-  console.log('Erro ao conectar ao MongoDB:', err.message);
-});
-
+  .then(() => console.log('Conectado ao MongoDB'))
+  .catch((err) => {
+    console.log('Erro ao conectar ao MongoDB:', err.message);
+  });
 
 // Usando as rotas de projeto
 app.use('/api/projetos', projetoRoutes);
 
 app.listen(PORT, () => {
-  console.log(`Servidor rodando na porta ${PORT}`);
+    console.log(`Servidor rodando na porta ${PORT}`);
 });
